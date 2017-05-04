@@ -18,8 +18,8 @@ class House {
     return this.address.replace(/.{45}$/g, '****')
   }
 
-  buy(money, good_credit) {
-    if (money >= down_payment && good_credit) {
+  buy(input) {
+    if (input['money'] >= this.down_payment && input['good_credit']) {
       this.sold = true
     }
   }
