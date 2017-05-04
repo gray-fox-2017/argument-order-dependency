@@ -2,24 +2,24 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(unit) {
+    this.address = unit.address
+    this.square_feet = unit.square_feet
+    this.num_bedrooms = unit.num_bedrooms || 3
+    this.num_baths = unit.num_baths || 2
+    this.cost = unit.cost || 320000
+    this.down_payment = unit.down_payment || 0.20
+    this.sold = unit.sold || false
+    this.short_sale = unit.short_sale
+    this.has_tenants = unit.has_tenants || false
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{45}$/g, '****')
   }
 
-  buy(money, good_credit) {
-    if (money >= down_payment && good_credit) {
+  buy(input) {
+    if (input['money'] >= this.down_payment && input['good_credit']) {
       this.sold = true
     }
   }
@@ -33,6 +33,17 @@ class House {
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
+let jjib = {
+  address: 'Jl. Rempoa Raya No. 5 Bintaro Pesanggrahan Jakarta Selatan 12330',
+  num_bedrooms: 2,
+  num_baths: 2,
+  cost: 'Rp. 13.000.000,- / m2',
+  down_payment: 12345,
+  sold: true,
+  has_tenants: true
+}
+jjib['square_feet']= 100;
+
+const cool = new House(jjib)
 
 console.log(cool.to_s())
