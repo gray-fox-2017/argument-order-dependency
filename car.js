@@ -4,12 +4,12 @@ class Car {
 
   start_car(options) {
     this.headlights = true;
-    if (options.hasOwnProperty('headlights')) {
+    if (options && options.hasOwnProperty('headlights')) {
       this.headlights = options['headlights'];
     }
 
     this.gear = 1;
-    if (options.hasOwnProperty('gear')) {
+    if (options && options.hasOwnProperty('gear')) {
       this.gear = options['gear'];
     }
   }
