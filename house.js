@@ -33,16 +33,26 @@ class House {
   }
 }
 
-let jjib = {}
-jjib.address = 'Jl. Rempoa Raya No. 5 Bintaro Pesanggrahan Jakarta Selatan 12330'
-jjib.square_feet= 100
-jjib.num_bedrooms= 2
-jjib.num_baths= 2
-jjib.cost= 'Rp. 13.000.000,- / m2'
-jjib.down_payment= 12345
-jjib.sold= true
-jjib.has_tenants= true
+let jjib = {
+  address: 'Jl. Rempoa Raya No. 5 Bintaro Pesanggrahan Jakarta Selatan 12330',
+  num_bedrooms: 2,
+  num_baths: 2,
+  cost: 'Rp. 13.000.000,- / m2',
+  down_payment: 12345,
+  sold: true,
+  has_tenants: true
+}
+jjib['square_feet']= 100;
 
 const cool = new House(jjib)
 
 console.log(cool.to_s())
+
+let start = {
+  headlights: false,
+  gear: 'N'
+}
+
+console.log(jjib.hasOwnProperty('address'));
+
+console.log(start)
