@@ -2,20 +2,20 @@
 
 class House {
 
-  constructor(address, square_feet, num_bedrooms, num_baths, cost, down_payment, sold, short_sale, has_tenants) {
-    this.address = address
-    this.square_feet = square_feet
-    this.num_bedrooms = num_bedrooms || 3
-    this.num_baths = num_baths || 2
-    this.cost = cost || 320000
-    this.down_payment = down_payment || 0.20
-    this.sold = sold || false
-    this.short_sale = short_sale
-    this.has_tenants = has_tenants || false
+  constructor(component) {
+    this.address = component["address"]
+    this.square_feet = component["square_feet"]
+    this.num_bedrooms = component["num_bedrooms"] || 3
+    this.num_baths = component["num_baths"] || 2
+    this.cost = component["cost"] || 320000
+    this.down_payment = component["down_payment"] || 0.20
+    this.sold = component["sold"] || false
+    this.short_sale = component["short_sale"]
+    this.has_tenants = component["has_tenants"] || false
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
   }
 
   buy(money, good_credit) {
@@ -29,10 +29,20 @@ class House {
   }
 
   to_s() {
-    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. ${this.cost}`
+    return `${this.obscure_address()} : ${this.square_feet} sq. ft., ${this.num_bedrooms} bed, ${this.num_baths} bath. $${this.cost}`
   }
 }
 
-const cool = new House('address', 100, 2, 2, 12345, 12345, true, true)
+let houseComp = {
+  address: "jalan pondok indah blabla",
+  square_feet: 100,
+  num_bedrooms: 2,
+  num_baths: 2,
+  cost: 12345,
+  short_sale: true,
+  has_tenants: true
+}
+
+const cool = new House(houseComp)
 
 console.log(cool.to_s())
