@@ -47,12 +47,3 @@ jjib['square_feet']= 100;
 const cool = new House(jjib)
 
 console.log(cool.to_s())
-
-let start = {
-  headlights: false,
-  gear: 'N'
-}
-
-console.log(jjib.hasOwnProperty('address'));
-
-console.log(start)
