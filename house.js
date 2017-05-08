@@ -11,11 +11,11 @@ class House {
     this.down_payment = components["down_payment"] //|| 0.20
     this.sold = components["sold"] //|| false
     this.short_sale = components["short_sale"]
-this.has_tenants = components["has_tenants"] //|| false
+    this.has_tenants = components["has_tenants"] //|| false
   }
 
   obscure_address() {
-    this.address.replace(/.{10}$/g, '****')
+    return this.address.replace(/.{10}$/g, '****')
   }
 
   buy(money, good_credit) {
@@ -33,7 +33,7 @@ this.has_tenants = components["has_tenants"] //|| false
   }
 }
 
-const cool = new House({"address" : 'Jln. Masjid Nurul Fajri No.36',
+const cool = new House({"address" : 'Jln Masjid Nurul Fajri No.36',
   "square_feet" : 100,
   "num_bedrooms" : 2,
   "num_baths" : 2,
