@@ -9,7 +9,7 @@ class Car {
       this.headlights = true
     }
 
-    if (options && options['gear']) {
+    if (options && options.hasOwnProperty(['gear'])) {
       this.gear = options['gear']
     } else {
       this.gear = 1
